@@ -15,14 +15,10 @@ public class SeiveOfAratosthenes {
         }
         for (int i = 2; i*i <= n; i++) {
             if (isPrime[i]) {
-                for (int j = i*2; j <= n; j = j+i)
+                for (int j = i * 2; j <= n; j = j + i)
                     isPrime[j] = false;
             }
         }
-        int j = 0;
-        j++;
-        System.out.println(j);
-
         return isPrime;
     }
 
