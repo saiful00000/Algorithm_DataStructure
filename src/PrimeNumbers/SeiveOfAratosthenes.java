@@ -26,7 +26,7 @@ public class SeiveOfAratosthenes {
         int n = 100;
         boolean ans[] = seiveAlgo(n);
         for (int i = 2; i <= n; i++) {
-            if (ans[i] == true) {
+            if (ans[i]) {
                 System.out.print(i +" ");
             }
         }
