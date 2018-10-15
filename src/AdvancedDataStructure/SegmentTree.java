@@ -44,7 +44,26 @@ class SegmentTree {
                 + getSumUtil(mid + 1, se, qs, qe, 2 * si +2);
     }
 
+    void updateValue(int[] arry, int n, int i, int new_val) {
+        if (i < 0 || i > n - 1) {
+            System.out.println("Invalid Input");
+            return;
+        }
+        int diff = new_val - arry[i];
+        arry[i] = new_val;
+        updateValueUtil(0, n-1, i, diff, 0);
+    }
 
+    void updateValueUtil(int ss, int se, int i, int diff, int si) {
+        if (i < ss || i > se)
+            return;
+        st[si] += diff;
+        if (se != ss) {
+            int mid = getMid(ss,se);
+            updateValueUtil(ss, mid, i, diff, 2*si+1);
+            updateValueUtil(mid+1, se, i, diff, 2*si+2);
+        }
+    }
 
     public static void main(String[] args) {
         int[] array = {1,3,5,7,9,11};
@@ -52,7 +71,7 @@ class SegmentTree {
 
         SegmentTree tree = new SegmentTree(array,n);
 
-        //tree.updateValue(array, n, 1, 10);
+        tree.updateValue(array, n, 1, 10);
 
         System.out.println("Sum of values in given range = "
                 + tree.getSum(n, 1, 3));
