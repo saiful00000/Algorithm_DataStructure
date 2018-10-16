@@ -22,10 +22,6 @@ public class KadansAlgorithm {
         return max_sum;
     }
 
-    public int getMax(int[] a) {
-        return lagestSum(a);
-    }
-
     public static void main(String[] args) {
         KadansAlgorithm k = new KadansAlgorithm();
         int[] nums = {2, -10, 11, 3, 4, -5, 1};
