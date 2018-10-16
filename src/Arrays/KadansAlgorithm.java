@@ -5,9 +5,6 @@ package Arrays;
 *  a one dimensional array of numbers has the largest sum
 *
 * */
-
-
-
 public class KadansAlgorithm {
 
     public int lagestSum(int[] nums) {
