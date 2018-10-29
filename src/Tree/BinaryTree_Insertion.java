@@ -60,7 +60,7 @@ public class BinaryTree_Insertion {
 
         int value = 120;
 
-        System.out.println("The tre inorder travarsal before insertion is : ");
+        System.out.println("The tree inorder travarsal before insertion is : ");
         inOrder(root);
 
         insert(root, value);
