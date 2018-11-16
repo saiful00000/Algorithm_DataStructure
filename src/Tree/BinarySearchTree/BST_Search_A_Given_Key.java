@@ -1,4 +1,4 @@
-package Tree;
+package Tree.BinarySearchTree;
 
 public class BST_Search_A_Given_Key {
     //class for constructing the structure of a node
@@ -52,7 +52,6 @@ public class BST_Search_A_Given_Key {
                 root = insert(root, data);
             }
 
-            searchTheKey(root, 100);
             System.out.println();
         }
     }

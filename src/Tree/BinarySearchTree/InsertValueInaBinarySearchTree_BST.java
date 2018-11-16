@@ -4,7 +4,7 @@
 * And also implemented Tree inOrder traversal
 * */
 
-package Tree;
+package Tree.BinarySearchTree;
 public class InsertValueInaBinarySearchTree_BST {
     // construct a node with left and right child and va;ue
     static class Node {
