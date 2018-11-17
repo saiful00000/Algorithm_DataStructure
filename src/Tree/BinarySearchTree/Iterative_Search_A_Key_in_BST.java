@@ -1,17 +1,16 @@
 package Tree.BinarySearchTree;
 
-public class BST_Search_A_Given_Key {
-    //class for constructing the structure of a node
+public class Iterative_Search_A_Key_in_BST {
     static class Node {
         int data;
-        Node left, right;
+        Node left;
+        Node right;
 
         Node(int data) {
             this.data = data;
         }
     }
 
-    //class for implement Binary tree and perform search operation
     static class BST {
 
         // method for cheack if the given key is exist i the tree
@@ -20,15 +19,16 @@ public class BST_Search_A_Given_Key {
                 System.out.println("The given key is not found.");
                 return;
             }
-            if (root.data == key) {
-                System.out.println("The given key is exist in the Tree");
-                return;
+            while (root != null) {
+                if (root.data == key) {
+                    System.out.println("Y");
+                    return;
+                }
+                if (key < root.data) root = root.left;
+                else root = root.right;
             }
 
-            if (key < root.data)
-                searchTheKey(root.left, key);
-            else
-                searchTheKey(root.right, key);
+            System.out.println("N");
         }
 
         // method for insert value in binary Tree
@@ -52,8 +52,7 @@ public class BST_Search_A_Given_Key {
                 root = insert(root, data);
             }
 
-            searchTheKey(root,20);
+            searchTheKey(root,25);
         }
     }
-
 }
