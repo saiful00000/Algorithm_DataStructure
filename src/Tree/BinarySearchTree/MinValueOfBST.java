@@ -37,7 +37,7 @@ public class MinValueOfBST {
             for (int data: array) {
                 root = insert(root, data);
             }
-            System.out.println(minValue(root));
+            System.out.println("\n" + minValue(root));
         }
     }
 }
