@@ -1,6 +1,6 @@
 package Tree.BinarySearchTree;
 
-public class MinValueOfBST {
+public class Minimum_VAlue_of_BST {
     static class Node{
         int data;
         Node left, right;
@@ -30,6 +30,7 @@ public class MinValueOfBST {
                 return root.data;
             return minValue(root.left);
         }
+
 
         public static void main(String[] args) {
             Node root = null;
