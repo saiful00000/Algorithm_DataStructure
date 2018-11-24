@@ -32,7 +32,7 @@ public class ActivitySelectionProblem {
         }
 
         public String toString() {
-            return "{" + getStart() + "," + getFinish() + "}";
+            return "[" + getStart() + ", " + getFinish() + "]";
         }
     }
 
@@ -68,7 +68,7 @@ public class ActivitySelectionProblem {
         ActivitySelection select = new ActivitySelection();
         Set<Integer> set = select.selectActivity(activities);
         for (int i : set) {
-            System.out.println(activities.get(i));
+            System.out.print(activities.get(i) + " ");
         }
     }
 }
