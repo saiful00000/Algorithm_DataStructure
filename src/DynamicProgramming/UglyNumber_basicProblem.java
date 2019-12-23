@@ -10,6 +10,7 @@ package DynamicProgramming;
 
 public class UglyNumber_basicProblem {
 
+    // brute force solution
     public static int div(int number, int dvsr) {
         while (number % dvsr == 0) {
             number = number/dvsr;
@@ -40,5 +41,35 @@ public class UglyNumber_basicProblem {
     public static void main(String[] args) {
         long number = getUglyNumbwe(150);
         System.out.println(number);
+    }
+
+    // solution using dynamic programming
+    public static int nThUglyNumber(int n) {
+        int[] result = new int[n];
+        int i2 = 0, i3 = 0, i5 = 0;
+        int next_ugly_number = 1;
+        int next_multyply_by_2 = 2;
+        int next_multyply_by_3 = 3;
+        int next_multyply_by_5 = 5;
+        result[0] = 1;
+
+        for (int i = 1; i < n; i++) {
+            next_ugly_number = Math.min(next_multyply_by_2, Math.min(next_multyply_by_3, next_multyply_by_5));
+            result[i] = next_ugly_number;
+            if (next_ugly_number == next_multyply_by_2) {
+                i2++;
+                next_multyply_by_2 = result[i2] * next_ugly_number;
+            }
+            if (next_ugly_number == next_multyply_by_3) {
+                i3++;
+                next_multyply_by_3 = result[i3] * next_multyply_by_3;
+            }
+            if (next_ugly_number == next_multyply_by_5) {
+                i5++;
+                next_multyply_by_5 = result[i5 * next_multyply_by_5];
+            }
+        }
+
+        return result[n];
     }
 }
