@@ -1,43 +1,39 @@
 import java.util.*;
 
 public class Test {
-    public static void main(String[] args) {
-        addTwoNumbers(new int[] {1,2}, new int[] {1,2});
+
+    int[] prices = {2, 3, 5, 1, 4};
+    int N = prices.length;
+    int[][] cache = new int[N][N];
+
+    int maxprofit(int left, int right){
+        if (left > right) {
+            return 0;
+        }
+
+        if (cache[left][right] != -1) {
+            return cache[left][right];
+        }
+
+        int year = N - (right - left + 1) + 1;
+
+        return cache[right][left] = Math.max(
+                maxprofit(left+1, right) + year * prices[left],
+                maxprofit(left, right-1) + year * prices[right]
+        );
     }
-    public static void addTwoNumbers(int[] l1, int[] l2) {
-        int first = 0;
-        int second = 0;
-        int sum;
 
-        int i = 0;
-        while(i < l1.length){
-            int v = l1[i];
-            first = first * 10 + v;
-            i++;
+    void initCache() {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                cache[i][j] = -1;
+            }
         }
+    }
 
-        i = 0;
-        while(i < l2.length){
-            int v = l2[i];
-            second = second * 10 + v;
-            i++;
-        }
-
-        System.out.println(first);
-        System.out.println(second);
-
-        /*sum = first + second;
-        if(sum == 0){
-            return new ListNode(0);
-        }
-        l1 = null;
-
-        while(sum != 0){
-            int rem = sum % 10;
-            sum /= 10;
-            ListNode node = new ListNode(rem);
-            node.next = l1;
-            l1 = node;
-        }*/
+    public static void main(String args[]){
+        Test test = new Test();
+        test.initCache();
+        System.out.println(test.maxprofit(0, test.N-1));
     }
 }
